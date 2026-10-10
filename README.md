@@ -62,7 +62,6 @@ repository-specific paths, commands and assumptions.
 | DDD modeling | `ddd-domain-modeling` | Discovery, Event Storming, bounded contexts, ubiquitous language and aggregates |
 | DDD implementation | `ddd-dotnet-implementation` | .NET aggregates, invariants, value objects, domain events and context boundaries |
 | Testing | `integration-tests-dotnet` | WebApplicationFactory, database fidelity, Testcontainers and isolation |
-| Code review | `dotnet-code-review` | Diff-first .NET review with nine specialized reference files |
 | Governance | `repository-governance-sdd` | Agent Skills, AGENTS.md, ADRs and SDD workflows |
 
 - [`catalog.curated.json`](catalog.curated.json): original repository/path,
@@ -73,10 +72,7 @@ repository-specific paths, commands and assumptions.
 - [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md): MIT notices for the
   third-party materials underlying the DDD adaptations.
 
-**Before merging:** confirm the right to redistribute the `dotnet-code-review`
-adaptation under MIT. Its original repository did not publish an explicit
-license at the pinned source commit; the pending review is clearly tracked,
-not silently treated as an official MIT skill.
+**Deferred candidate:** `dotnet-code-review` is not included or installable from this catalog because its source repository does not publish a redistribution license. It can be considered later only after permissions and licensing are documented; the current release contains **seven** approved internal skills.
 
 Do not add curated skills to `catalog.sources.json` or
 `sources.lock.json`: those files represent unmodified official vendor
