@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "repository": "dotnet/skills",
+      "commit": "1d40f95ed0f2cdedfa4c9b2614b7c2035a4323cb",
+      "license": "MIT",
+      "skills": [
+        {
+          "name": "csharp-refactoring",
+          "path": "plugins/dotnet/skills/csharp-refactoring",
+          "category": "development"
+        },
+        {
+          "name": "optimizing-ef-core-queries",
+          "path": "plugins/dotnet-data/skills/optimizing-ef-core-queries",
+          "category": "data"
+        },
+        {
+          "name": "run-tests",
+          "path": "plugins/dotnet-test/skills/run-tests",
+          "category": "testing"
+        },
+        {
+          "name": "scaffold-dotnet-test-project",
+          "path": "plugins/dotnet-test/skills/scaffold-dotnet-test-project",
+          "category": "testing"
+        },
+        {
+          "name": "platform-detection",
+          "path": "plugins/dotnet-test/skills/platform-detection",
+          "category": "testing"
+        },
+        {
+          "name": "filter-syntax",
+          "path": "plugins/dotnet-test/skills/filter-syntax",
+          "category": "testing"
+        },
+        {
+          "name": "test-anti-patterns",
+          "path": "plugins/dotnet-test/skills/test-anti-patterns",
+          "category": "testing"
+        },
+        {
+          "name": "test-analysis-extensions",
+          "path": "plugins/dotnet-test/skills/test-analysis-extensions",
+          "category": "testing"
+        }
+      ]
+    },
+    {
+      "repository": "angular/skills",
+      "commit": "ff69483aea356b81bc0c47b82df51254582e024d",
+      "license": "MIT (per-skill frontmatter)",
+      "skills": [
+        {
+          "name": "angular-developer",
+          "path": "angular-developer",
+          "category": "development"
+        },
+        {
+          "name": "angular-new-app",
+          "path": "angular-new-app",
+          "category": "development"
+        }
+      ]
+    },
+    {
+      "repository": "docker/skills",
+      "commit": "f79172733725e2fd236343ee7b963c446ed85d09",
+      "license": "Apache-2.0",
+      "skills": [
+        {
+          "name": "docker-project-foundations",
+          "path": "skills/docker-project-foundations",
+          "category": "devops"
+        },
+        {
+          "name": "docker-build-strategies",
+          "path": "skills/docker-build-strategies",
+          "category": "devops"
+        },
+        {
+          "name": "docker-compose-patterns",
+          "path": "skills/docker-compose-patterns",
+          "category": "devops"
+        },
+        {
+          "name": "docker-destructive-guardrails",
+          "path": "skills/docker-destructive-guardrails",
+          "category": "devops"
+        }
+      ]
+    },
+    {
+      "repository": "google/skills",
+      "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
+      "license": "Apache-2.0",
+      "skills": [
+        {
+          "name": "bigquery-basics",
+          "path": "skills/cloud/bigquery-basics",
+          "category": "cloud"
+        }
+      ]
+    },
+    {
+      "repository": "hashicorp/agent-skills",
+      "commit": "f706481af9b8fedb66de909f6243ad29601afa0c",
+      "license": "MPL-2.0",
+      "skills": [
+        {
+          "name": "terraform-style-guide",
+          "path": "plugins/terraform/skills/terraform-style-guide",
+          "category": "infrastructure"
+        }
+      ]
+    }
+  ]
+}

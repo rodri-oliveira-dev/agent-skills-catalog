@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "repository": "dotnet/skills",
+      "commit": "1d40f95ed0f2cdedfa4c9b2614b7c2035a4323cb",
+      "license": "MIT"
+    },
+    {
+      "repository": "angular/skills",
+      "commit": "ff69483aea356b81bc0c47b82df51254582e024d",
+      "license": "MIT (per-skill frontmatter)"
+    },
+    {
+      "repository": "docker/skills",
+      "commit": "f79172733725e2fd236343ee7b963c446ed85d09",
+      "license": "Apache-2.0"
+    },
+    {
+      "repository": "google/skills",
+      "commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
+      "license": "Apache-2.0"
+    },
+    {
+      "repository": "hashicorp/agent-skills",
+      "commit": "f706481af9b8fedb66de909f6243ad29601afa0c",
+      "license": "MPL-2.0"
+    }
+  ],
+  "skills": [
+    {
+      "name": "csharp-refactoring",
+      "category": "development",
+      "source_repository": "dotnet/skills",
+      "source_path": "plugins/dotnet/skills/csharp-refactoring",
+      "source_commit": "1d40f95ed0f2cdedfa4c9b2614b7c2035a4323cb",
+      "files_sha256": {
+        "SKILL.md": "a5516d690bc0713665870e31b7db6c6d09089c0d1a524482a156e01377ef0d72",
+        "references/operation-catalog.md": "94311ac23ea1098c130942084ceb07969f73790d59072c90b87967cbdc3b8dfa"
+      }
+    },
+    {
+      "name": "optimizing-ef-core-queries",
+      "category": "data",
+      "source_repository": "dotnet/skills",
+      "source_path": "plugins/dotnet-data/skills/optimizing-ef-core-queries",
+      "source_commit": "1d40f95ed0f2cdedfa4c9b2614b7c2035a4323cb",
+      "files_sha256": {
+        "SKILL.md": "674fe2a77386905c3a3bf7dfc823b54359afeed63ea87c51c9386fde303a7f83"
+      }
+    },
+    {
+      "name": "run-tests",
+      "category": "testing",
+      "source_repository": "dotnet/skills",
+      "source_path": "plugins/dotnet-test/skills/run-tests",
+      "source_commit": "1d40f95ed0f2cdedfa4c9b2614b7c2035a4323cb",
+      "files_sha256": {
+        "SKILL.md": "7b9698bb5c1f172ca35695dc3b614957c2cb8badf7b230a4b8118d173650fe2b"
+      }
+    },
+    {
+      "name": "scaffold-dotnet-test-project",
+      "category": "testing",
+      "source_repository": "dotnet/skills",
+      "source_path": "plugins/dotnet-test/skills/scaffold-dotnet-test-project",
+      "source_commit": "1d40f95ed0f2cdedfa4c9b2614b7c2035a4323cb",
+      "files_sha256": {
+        "SKILL.md": "dfb06c39a27523f5135abd81fdc64ec86c200799af39d085b412510fb4c43683"
+      }
+    },
+    {
+      "name": "platform-detection",
+      "category": "testing",
+      "source_repository": "dotnet/skills",
+      "source_path": "plugins/dotnet-test/skills/platform-detection",
+      "source_commit": "1d40f95ed0f2cdedfa4c9b2614b7c2035a4323cb",
+      "files_sha256": {
+        "SKILL.md": "c824bf8f8cbf1233b8b0dbc6e38fae6ac2486c42a6a1f6553a6335daa6838c1a",
+        "references/command-mode.md": "08e276dcafe6bd5bfbaab435065ca24a5800a4eae3ffd7fc15daa1e81354bbc4"
+      }
+    },
+    {
+      "name": "filter-syntax",
+      "category": "testing",
+      "source_repository": "dotnet/skills",
+      "source_path": "plugins/dotnet-test/skills/filter-syntax",
+      "source_commit": "1d40f95ed0f2cdedfa4c9b2614b7c2035a4323cb",
+      "files_sha256": {
+        "SKILL.md": "64c294d0fc2d0c4d5887d391c6684429fc4d7a66b6b9f99a475e6abe390c5d19"
+      }
+    },
+    {
+      "name": "test-anti-patterns",
+      "category": "testing",
+      "source_repository": "dotnet/skills",
+      "source_path": "plugins/dotnet-test/skills/test-anti-patterns",
+      "source_commit": "1d40f95ed0f2cdedfa4c9b2614b7c2035a4323cb",
+      "files_sha256": {
+        "SKILL.md": "01cf87008db2f6ffe17f397856d9ccb5080bbc869e4089baab9acee2e5b0027c"
+      }
+    },
+    {
+      "name": "test-analysis-extensions",
+      "category": "testing",
+      "source_repository": "dotnet/skills",
+      "source_path": "plugins/dotnet-test/skills/test-analysis-extensions",
+      "source_commit": "1d40f95ed0f2cdedfa4c9b2614b7c2035a4323cb",
+      "files_sha256": {
+        "SKILL.md": "2e442c224b78c5b07097fde53bf055060d2d703d4d90418e0e8a07af8cbda673",
+        "extensions/cpp.md": "da2de0bb820edaf523731bf36381d2a7e71009561072204773be548e43911d50",
+        "extensions/dotnet.md": "ef257a931a25501697fde8a36e027ba9195ff624ff701dd5fd276d746c0d25be",
+        "extensions/go.md": "a885da2e49efbedfe30307c196ec71876433571ce3e5c781e6741ee9a77ab8c3",
+        "extensions/java.md": "05f3bd254cad71e2b4ac36a3483e2a8fef41dba0ac6a983925754b60bc50758b",
+        "extensions/kotlin.md": "ef1176cc48c807bfb6e57329df6ee093f6e2475cd629980ffc477d85d879605c",
+        "extensions/powershell.md": "2dbbac3f475b7f7f4f817597379789af228e034d4c179460403757af26240f9b",
+        "extensions/python.md": "e532c6eb1d362e8c0a14b90cb906a84449f0a03330ff432a72d484c79ece0e5d",
+        "extensions/ruby.md": "422044981b8672c26f6c47ac9f828aa25f03eac5cc0c9a2354843a6980a297bc",
+        "extensions/rust.md": "d92041fc8142311070e9c02a5590ac9d10eef0baa4aa9136e163e2c526871725",
+        "extensions/swift.md": "41f4b7c9b8827de0737778ca24de5de26ccd1a3f5ff58d6f58a135fc576c4c52",
+        "extensions/typescript.md": "7dd98060c3941ec791f1128ef67d77cad2733ee8381e39f14ccdc19ad48f90ef"
+      }
+    },
+    {
+      "name": "angular-developer",
+      "category": "development",
+      "source_repository": "angular/skills",
+      "source_path": "angular-developer",
+      "source_commit": "ff69483aea356b81bc0c47b82df51254582e024d",
+      "files_sha256": {
+        "SKILL.md": "ec5e3a0b1ef218c0d7d40e35c40e5255e7319d7d595c5a6036d8bdac2532c782",
+        "references/angular-animations.md": "f21b798ed93e27318527ef7e74e63ef8c71cb74ff2b010d70dbb429883f0dbd0",
+        "references/angular-aria.md": "fff4cbdf3558beacfeb03a243d874cacb16a24b0c78962c4f9c760fc2cbe5ad8",
+        "references/cli.md": "f4369df38e131b5f75feb81beafcdfefdcf09d72ebf5fde5d9fb8d6477e8edc1",
+        "references/component-harnesses.md": "1761d33a65ecde690ca0c57081ff9d5871cafb8ff724738ccd711b5018e2d894",
+        "references/component-styling.md": "de3351fdb72174361c6eee150940193f20d148afaceab0f22107758a3cb2d787",
+        "references/components.md": "35ffb62475d54d7d4ed434b2190882440a77ef76b14260128e6d7e3111122e3b",
+        "references/creating-services.md": "1fc1d46bd26568d07d1500d0b9ba1a2556ca4a11f4a3dc11036ae5b16dea80cc",
+        "references/data-resolvers.md": "bd5d7b7c3f6f7d85c45442efa79896e61b399a01a733450fc33395cf3761e2d7",
+        "references/define-routes.md": "4e80613931ecf4da957f9ff45343869b1651331ff4c8b955f2698b9ac0afc921",
+        "references/defining-providers.md": "e654c23a080c642cf7031b5cc5de1101b8c75030c15256f7e3b81b0336953c6d",
+        "references/di-fundamentals.md": "ed5e4004aed214429de091d2b041cfd818c77a0ebfa24c23f01ec9bac7118a78",
+        "references/e2e-testing.md": "fd11d930ed081ca934fe83df06c9d965257ec817ebef59b918d4d814a65feca6",
+        "references/effects.md": "5df4759be70248a1f282aff3060b04b694f05ae78093a5caa4eaff455e35a6a3",
+        "references/environment-configuration.md": "788b62bf5e04d56343f598437f7e3fd7fdfc6efa8ec6727288dc73514b1b5a76",
+        "references/hierarchical-injectors.md": "967e472a1208c6e1f4b95bf7ee9162165904eb78ac6dab64643c67a9d1dac264",
+        "references/host-elements.md": "5c2eb324e7b84bd81334b6d262a61b873de208640aabe4be48b73600438bdaed",
+        "references/http-client.md": "b6a6c92ae71dc98b6cd0e2b840227c7743b3edf288769da3db070fa1815c1adc",
+        "references/injection-context.md": "4435dfcec91bd9fb68d6c318802cac1b37424d4e76452e6f0f52ed0d2b6536fb",
+        "references/inputs.md": "f5dcdd2a69e7e5c0aad503b4deaea5cedb682130cc699c669128b8fadcc65ba8",
+        "references/linked-signal.md": "01f5395e4be4be7c642f4dacd5312d6cc82e641f3ff177f9283b26b79dd07e95",
+        "references/loading-strategies.md": "4eb2e243425443426d28c6f68c823d501c7b2bf64e4587c96c4c6013d57e7c93",
+        "references/mcp.md": "2fbb9a897fb0b7f9214486f475a89bc32a2e889e7770a233ba55a7d36ddd1ca5",
+        "references/migrations.md": "9e6906ae22b59871e4c2381d1a7175214bbe7117c042731a5db46ea214b1b6d0",
+        "references/naming-conventions.md": "f0751d75d12a76ff0415124948ead5ae1a67d14a84360e64526aa8bac7d6c5d3",
+        "references/navigate-to-routes.md": "ea3c3d53b5db47b4f8d8b05124330e72bea92fc908d42c06aa7edb9e652b425e",
+        "references/outputs.md": "4d6900ff9ab90168969c3d05b67d88f69bb6a46aa4b74a8a8290ba0643c6d8dd",
+        "references/pipes.md": "76bd0f2f3ac9096ee511427df6ea73cab75f06a3566ab4595ba4f2ec8c0c6fc9",
+        "references/reactive-forms.md": "edfc57c191d29a1549e9aa9b4ba0d1111a9792caa65918d62967920647717121",
+        "references/rendering-strategies.md": "329aa9aa35c85dd2048c899f26025439d3b0244067dbb508e724d291fdad7c97",
+        "references/resource.md": "c3cfec3c5da209c4d42206697eb959f23211d84fc631060020e6a7b36f0c7712",
+        "references/route-animations.md": "eda1452f85ce05f3f28753cc77cd8c31c7a52515d7ccebbb35de0ec1e3beb374",
+        "references/route-guards.md": "c33e62647ffbf1790ea2b5a9fd624e50b3745c66aa050f037a8440f835f613c7",
+        "references/router-lifecycle.md": "4abc8cb8dfeb2e9f57dc11c117d5f4a5b756b39dc076910d9ced9da640effc2d",
+        "references/router-testing.md": "4d144577927d3ea93ae498cac7ebd2724873a2de225b75d345abb24759bd62d3",
+        "references/show-routes-with-outlets.md": "43a2ed62ea2edafa8569bf7045f20928110f8f844d5890bfb6a2f2dde45e754b",
+        "references/signal-forms.md": "47b5803bf2b25f90494dacb243f38ce613756f347a5502f4d210f15425379ae7",
+        "references/signals-overview.md": "da07c58fdea2ab7d82a28faf9f3d117ccb98ccaf3eec06f103b898f557791146",
+        "references/tailwind-css.md": "bdb952d0dd2d415560a796ecaf843cacff5ac20d8ef961eaaf75656fef9b9263",
+        "references/template-driven-forms.md": "52e83e576b0c6dc05f854e903c4cfda1222bcd55c50ddee07344d1e53d02c1df",
+        "references/testing-fundamentals.md": "8f48c2392d99487934edf977c0d1b87a4e83ff9761db493bbcccc10f574bcb5a"
+      }
+    },
+    {
+      "name": "angular-new-app",
+      "category": "development",
+      "source_repository": "angular/skills",
+      "source_path": "angular-new-app",
+      "source_commit": "ff69483aea356b81bc0c47b82df51254582e024d",
+      "files_sha256": {
+        "SKILL.md": "807120998cc2161b14963300fcb8fd594c71f3a527f67f0172123b458178631e"
+      }
+    },
+    {
+      "name": "docker-project-foundations",
+      "category": "devops",
+      "source_repository": "docker/skills",
+      "source_path": "skills/docker-project-foundations",
+      "source_commit": "f79172733725e2fd236343ee7b963c446ed85d09",
+      "files_sha256": {
+        "SKILL.md": "7868b8c28106f9dab4e6b29c964c684e5797647d71da455cf8e966186cbbc279",
+        "agents/openai.yaml": "53926c60bab62fff24885d5e86c0210c332273b56f2cdd91de065de1b8e1327b",
+        "assets/Dockerfile.simple": "3aff7f2ce6b7b7a50a876d97dc89db10fa66ba591ee36694431c2d723cf8e60d",
+        "assets/compose-dev.yaml": "ff7265593ccbac9669448a0a1ac81e84ba30ec6b133d39137a42bb42901cdd1e",
+        "assets/dockerignore-example": "7e7794ca86a6ff6e8205fa693cdaa1182d7d6821c10152657be51a1b0be2a9e1",
+        "checks/verification.md": "b7c812a8c9a69436eb3ff42bcbb23300bd4cf79b1324172c23cc2c48e9f22b85",
+        "references/project-structure.md": "bded6f4d097be5dbb622cf4b89a69793063a0ab505dd1c46ad4e01fe2ea66f5a",
+        "scripts/verify-setup.sh": "a27fa1f6f44784957575e7d690e0ca2adf1003d6dcb5e2fd168a8451b4c153f5",
+        "skill.yaml": "52a7ba38eb36dce17c5bfe1760f35affde000da82ab51b3e2ce851486c4cacf7"
+      }
+    },
+    {
+      "name": "docker-build-strategies",
+      "category": "devops",
+      "source_repository": "docker/skills",
+      "source_path": "skills/docker-build-strategies",
+      "source_commit": "f79172733725e2fd236343ee7b963c446ed85d09",
+      "files_sha256": {
+        "SKILL.md": "7ff24758ebacdf2b3010f75ec3fe4b6692661ca6202e813520b37d3975392b1c",
+        "agents/openai.yaml": "9fc985ee4a18fefaf4e50e078f3469f80f60713ae87698303a2a9d95f3b91176",
+        "assets/Dockerfile.go": "04a56fd7b3617dbf83cc177532f216e999112c59e5e2f66f7fdde9c219eccdd7",
+        "assets/Dockerfile.nodejs": "0758d34aaba0879fc88fc7e4f1a9716b23af0b7ef0aee7c394498e67871266eb",
+        "assets/Dockerfile.python": "c3f4c4d3f0ee27f6dbe5022db721daf641a569d34ae017d0999b251f00d0a78b",
+        "assets/dockerignore-example": "c6a9a826899d82de2203ae47821bb08eb878b5370ac3cb92013f1ab9259bd500",
+        "checks/verification.md": "71e6e6f55d5754304e8e04281d5e6dec2ad8ba36d0460f716c3c4b4d18457d19",
+        "references/layer-caching.md": "bacaf379622bd018e5aa2c0b20ff9ae94fcf9b8640ff7b75f2b4b8b17b6f25c7",
+        "references/multi-stage-builds.md": "0faf45c4ce1582ab78ce15b5e918ca57d783bb261e9e97d7d807115c5b46a337",
+        "scripts/verify-build.sh": "d52633ba734587b1a0513366a4e13f771edff538492c42df8020d74d2ba7532b",
+        "skill.yaml": "ada7a02bd259603e0b6850e642d258a01f7b6db016c5fa3543a280b2ad6be8ad"
+      }
+    },
+    {
+      "name": "docker-compose-patterns",
+      "category": "devops",
+      "source_repository": "docker/skills",
+      "source_path": "skills/docker-compose-patterns",
+      "source_commit": "f79172733725e2fd236343ee7b963c446ed85d09",
+      "files_sha256": {
+        "SKILL.md": "b43f4d71a18159de5868e0f1a352f0dd091bb81fe3ad29b24d79cffce6adfc4c",
+        "agents/openai.yaml": "aec9d1df3cb1ce775e36d499da60ee728ad079516e26865a59007af276e1a424",
+        "assets/bad-vs-good.md": "f7de35332fa1c57f141a3df2e30fa82d109858ed00609a566536625b3df9eef8",
+        "assets/compose-dev-override.yaml": "d01ff97e0860e712c981c7100d1ce8f5e0cd18ed4a55b2237bbff604be01c2ad",
+        "assets/compose-web-app.yaml": "b9fa2b9162533724f3295b06377f76f8be5d13a428cb5572865c9d1420ded7e4",
+        "checks/verification.md": "0b41c98fc7f76d878f26187395df50c95ad9882b90d0c0a86536ab3e617956f5",
+        "references/service-dependencies.md": "54f2d8a2b0b84e5639da76c9c0b85a4b5f12f33cff407fd1a44febc7ba8f12bb",
+        "references/volumes-and-networks.md": "b7d077cbb3ddbdf3c1cc3fae0475604477f30ee8a905c4c5feb0ac42ffa66c23",
+        "scripts/verify-compose.sh": "42ba672ba1b933f00c2871c37c1e60067685b5ff58d25b1f1264f171c219ebd2",
+        "skill.yaml": "2f00f4fb618c32a8ace611dc66267572036e5494ec183ae53350107f35f4e342"
+      }
+    },
+    {
+      "name": "docker-destructive-guardrails",
+      "category": "devops",
+      "source_repository": "docker/skills",
+      "source_path": "skills/docker-destructive-guardrails",
+      "source_commit": "f79172733725e2fd236343ee7b963c446ed85d09",
+      "files_sha256": {
+        "SKILL.md": "d64c2b7a497aff8b48e4e70432e274267cc201be67c3be8e2852f506d02f68de",
+        "agents/openai.yaml": "cc3084947725e24bde5c52dddc4faa544696afb4f6390e1119595d069aa842c6",
+        "checks/verification.md": "5d598d6987b75463e81b7d58fa4ecc979d84e27bf92b4a11d782948c90acb75a",
+        "references/cross-skill-destructive-command-index.md": "9966353cd1d057757ca653b745593cc0b3d6eb3ef192fe0545737a52acf9fbec",
+        "references/docker-cli-destructive-commands.md": "7dd1df8187883d3b73fb7d3a941d590f18650667e25cbf779cba4ccf5eef56ef",
+        "skill.yaml": "8b61688ab0bf60f4540d687f6519619fe2ad9b7e15c290ebeafa82b6cd0366dc"
+      }
+    },
+    {
+      "name": "bigquery-basics",
+      "category": "cloud",
+      "source_repository": "google/skills",
+      "source_path": "skills/cloud/bigquery-basics",
+      "source_commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
+      "files_sha256": {
+        "SKILL.md": "ddab86b2941224f43a3ce746bb86371a44ac0ff80f53ec25af5a4980900983b1",
+        "references/change-history.md": "6d21ec622c6efa8edd8377a9a963ac13de6d4dd2b53d4fe40c90cfb769e88088",
+        "references/cli-usage.md": "b8ec6d981390d543a6af0ac3072813c6f7df641547dc17ecfaa2d43e766612db",
+        "references/client-library-usage.md": "4b091ffcd5f657e1c96dc60e2ad913266850a380c39190a26bbd90e229eb6b5a",
+        "references/continuous-queries.md": "01d77462193dc2343256ef2f69bdaa2c32cfc9af00e78a0e4ae010c2f1b589cc",
+        "references/core-concepts.md": "0911ac060c9b0e9423ef9676bc98983b687c68696f178f01edc3d2b9715c4ab1",
+        "references/iac-usage.md": "4cc7cba990280a5f2438bb965fb4bd575ca5967289f72bfd19b7830eb44b0208",
+        "references/iam-security.md": "384c8d4b1eb64f9567cbc6f167cd38802a0b4b836b0616305d947fe4f46cca04",
+        "references/mcp-usage.md": "f4cf2ef39e89ae3fc8e3a0bc19100e3382dc1eeec920d4cd8c5801dc51a62df7"
+      }
+    },
+    {
+      "name": "terraform-style-guide",
+      "category": "infrastructure",
+      "source_repository": "hashicorp/agent-skills",
+      "source_path": "plugins/terraform/skills/terraform-style-guide",
+      "source_commit": "f706481af9b8fedb66de909f6243ad29601afa0c",
+      "files_sha256": {
+        "SECURITY.md": "3dc8ffa10139e9772c5c102fee6377f66f5167bd043a7c43e6e5df682dc75f92",
+        "SKILL.md": "3a5c2e06a1daa07600d03f48328d1479284e7a9d59d66b2663693ca972080e22"
+      }
+    }
+  ]
+}
