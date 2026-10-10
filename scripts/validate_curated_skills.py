@@ -14,6 +14,18 @@ UPSTREAM_LICENSES = {
     "tango238/distill-ddd": "licenses/tango238__distill-ddd.LICENSE",
 }
 
+# Required derivative sources are policy, NOT data taken from the editable
+# manifest under validation. Every listed DDD skill must retain these origins.
+REQUIRED_DDD_ATTRIBUTIONS = {
+    "ddd-domain-modeling": frozenset({
+        "ciembor/agent-rules-books",
+        "tango238/distill-ddd",
+    }),
+    "ddd-dotnet-implementation": frozenset({
+        "ciembor/agent-rules-books",
+    }),
+}
+
 
 def blob_sha(data: bytes) -> str:
     """Compute the Git blob object ID (SHA-1), *not* a raw-content SHA-1."""
@@ -70,23 +82,20 @@ def validate_curated(root: Path) -> set[str]:
         if item.get("catalog_license") != "MIT":
             raise ValueError(f"Curated skill requires catalog MIT license review: {name}")
 
-        is_pending = item.get("license_review") == "pending-maintainer-confirmation"
-        is_approved = item.get("license_review") == "approved"
-        if not (is_pending or is_approved):
-            raise ValueError(f"Missing explicit license review status: {name}")
+        # Pending is not publishable. Consumers can install every skill in
+        # this directory, so a warning in the manifest alone is insufficient.
+        if item.get("license_review") != "approved":
+            raise ValueError(f"Unapproved curated skill license: {name}")
         original_license = item.get("source_license")
         license_evidence = item.get("source_license_file")
-        if original_license == "MIT":
-            if is_pending or not license_evidence:
-                raise ValueError(f"Unexpected source MIT licensing state: {name}")
-            license_text = (root / license_evidence).read_text(encoding="utf-8")
-            if "MIT License" not in license_text or "Permission is hereby granted" not in license_text:
-                raise ValueError(f"Source license text invalid: {name}")
-        elif original_license == "not-published-in-source-repository":
-            if not is_pending or license_evidence is not None:
-                raise ValueError(f"Unlicensed upstream must be marked for maintainer confirmation: {name}")
-        else:
-            raise ValueError(f"Unreviewed original license: {name}")
+        if original_license != "MIT" or not isinstance(license_evidence, str):
+            raise ValueError(f"Unlicensed or unreviewed curated source: {name}")
+        license_path = root / license_evidence
+        if not license_path.is_file():
+            raise ValueError(f"Missing curated source license: {name}")
+        license_text = license_path.read_text(encoding="utf-8")
+        if "MIT License" not in license_text or "Permission is hereby granted" not in license_text:
+            raise ValueError(f"Source license text invalid: {name}")
 
         folder = root / item["path"]
         skill = folder / "SKILL.md"
@@ -113,7 +122,13 @@ def validate_curated(root: Path) -> set[str]:
         if actual != inventory:
             raise ValueError(f"Curated skill file hashes differ from catalog: {name}")
 
-        for source in item.get("upstream_attributions", []):
+        origins = item.get("upstream_attributions", [])
+        if not isinstance(origins, list) or len(origins) != len(set(origins)):
+            raise ValueError(f"Invalid derivative attribution list: {name}")
+        expected_origins = REQUIRED_DDD_ATTRIBUTIONS.get(name)
+        if expected_origins is not None and set(origins) != expected_origins:
+            raise ValueError(f"Required DDD derivative attributions missing or modified: {name}")
+        for source in origins:
             if source not in UPSTREAM_LICENSES:
                 raise ValueError(f"Unknown derivative upstream: {source}")
             attributed.add(source)
