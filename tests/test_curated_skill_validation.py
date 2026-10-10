@@ -129,7 +129,7 @@ class CuratedSkillTests(unittest.TestCase):
             "source_license_file": "licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE",
         })
         (self.root / "licenses" / "rodri-oliveira-dev__dotnet-library-template.LICENSE").write_text(
-            "MIT License\\nPermission is hereby granted\\n".replace("\\\\n", "\\n"),
+            "MIT License\nPermission is hereby granted\n",
             encoding="utf-8",
         )
         (self.root / "THIRD_PARTY_NOTICES.md").write_text(
