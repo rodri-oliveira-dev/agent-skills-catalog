@@ -18,6 +18,16 @@ are in [`sources.lock.json`](sources.lock.json).
 | [google/skills](https://github.com/google/skills) | Apache-2.0 | Google and contributors; see `licenses/google__skills.LICENSE` |
 | [hashicorp/agent-skills](https://github.com/hashicorp/agent-skills) | MPL-2.0 | HashiCorp and contributors; see `licenses/hashicorp__agent-skills.LICENSE` |
 
+**Documented change to Google Cloud third-party material:** in the
+`google/skills` copy of `skills/bigquery-basics/SKILL.md`, the
+`../bigquery-ai-ml` relative link has been replaced with an absolute
+reference to the matching pinned Google Cloud upstream revision. This is a
+navigation-only change required when installing `bigquery-basics` by itself;
+the rest of the skill and references remain unchanged. The official-source
+import script reapplies this change deterministically, and the lockfile
+records the adapted content hash. This constitutes a marked modification
+to Apache-2.0 material, not a claim of original authorship.
+
 For MIT content, retain its permission and copyright notices. For Apache-2.0
 content, retain its license and any applicable upstream NOTICE file and mark
 modified files. For MPL-2.0 content, retain the MPL on covered files and
