@@ -260,7 +260,7 @@
       "source_path": "skills/cloud/bigquery-basics",
       "source_commit": "4b940dd4b5f5759794cc257266cb8cb7524b7a66",
       "files_sha256": {
-        "SKILL.md": "aed31cf6ffe6bf9673353ed7c674249057203c7d51cfe0e0db0868bb3d9deb0a",
+        "SKILL.md": "ddab86b2941224f43a3ce746bb86371a44ac0ff80f53ec25af5a4980900983b1",
         "references/change-history.md": "6d21ec622c6efa8edd8377a9a963ac13de6d4dd2b53d4fe40c90cfb769e88088",
         "references/cli-usage.md": "b8ec6d981390d543a6af0ac3072813c6f7df641547dc17ecfaa2d43e766612db",
         "references/client-library-usage.md": "4b091ffcd5f657e1c96dc60e2ad913266850a380c39190a26bbd90e229eb6b5a",
