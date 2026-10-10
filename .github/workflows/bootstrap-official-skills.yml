@@ -27,22 +27,11 @@ jobs:
       - name: Import pinned upstream skills
         run: python3 scripts/sync_official_skills.py
 
-      - name: Verify inventory
-        run: |
-          python3 - <<'PY'
-          import json
-          from pathlib import Path
-          p = Path(".")
-          catalog = json.loads((p / "catalog.sources.json").read_text())
-          lock = json.loads((p / "sources.lock.json").read_text())
-          count = sum(len(source["skills"]) for source in catalog["sources"])
-          assert len(lock["skills"]) == count
-          for entry in lock["skills"]:
-              target = p / "skills" / entry["name"]
-              assert (target / "SKILL.md").is_file()
-              assert len(list(target.rglob("*"))) >= len(entry["files_sha256"])
-          print(f"Validated {count} skills")
-          PY
+      - name: Run license validation regression tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Validate licenses and copied source integrity
+        run: python3 scripts/validate_licenses.py
 
       - name: Commit imported snapshot to branch
         run: |
