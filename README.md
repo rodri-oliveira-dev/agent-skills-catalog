@@ -4,6 +4,26 @@ A curated and reproducible collection of official-source **Agent Skills** for co
 
 This is an **independent community catalog**, not an official Microsoft, Google, Docker or HashiCorp distribution.
 
+## Licensing and third-party content
+
+**The root [MIT license](LICENSE) applies to this catalog's original code,
+documentation and tooling. It does not relicense vendored Agent Skills.**
+Each copied skill retains its upstream license and copyright obligations:
+
+- **MIT** (.NET and Angular): preserve the applicable copyright and permission notices. Angular's selected skills declare MIT individually in their frontmatter.
+- **Apache-2.0** (Docker and Google Cloud): retain the Apache license, relevant attribution/NOTICE files where supplied, and identify modifications when made.
+- **MPL-2.0** (HashiCorp Terraform): keep the MPL on covered upstream files and modifications to those files; independently authored catalog files can remain MIT.
+
+The source repository, upstream commit and original skill path are pinned in
+[`catalog.sources.json`](catalog.sources.json). License copies and publisher
+attribution are recorded in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+The importer preserves upstream skill files unchanged; this catalog does not
+claim ownership or official endorsement of third-party content.
+
+Run `python3 scripts/validate_licenses.py` locally to verify license evidence,
+source attribution and integrity hashes. Changes to publishers or license types
+require an explicit policy review; the CI will reject unreviewed licenses.
+
 ## Initial selection
 
 | Area | Skills |
