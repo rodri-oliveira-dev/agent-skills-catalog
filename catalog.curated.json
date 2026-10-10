@@ -110,6 +110,63 @@
         "references/testing.md": "def176f559b473b1774a4a3d74234741d6e03728",
         "references/webapi.md": "f65d084115c41c3a88b27f12a4d443d3881c4355"
       }
+    },
+    {
+      "id": "dotnet-bug-investigation",
+      "category": "debugging",
+      "classification": "internal-adapted",
+      "path": "skills/dotnet-bug-investigation",
+      "source_repository": "rodri-oliveira-dev/dotnet-library-template",
+      "source_commit": "32d45957e31017b51c0aa2f17eed2769dfea5749",
+      "source_skill_path": ".agents/skills/dotnet-bug-investigation/SKILL.md",
+      "source_skill_blob_sha": "0063518b3a3d0c51e586bbdf6bc848b65f572b96",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Adapted from the template's repository-specific .NET library workflow into cross-repository guidance for APIs, workers and libraries. The original template remains the owner of its upstream skill; this catalog carries a curated adaptation.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "60bee105611af8d1ca674b3fafd4d9a5b9dfc898"
+      }
+    },
+    {
+      "id": "dotnet-issue-implementation",
+      "category": "development",
+      "classification": "internal-adapted",
+      "path": "skills/dotnet-issue-implementation",
+      "source_repository": "rodri-oliveira-dev/dotnet-library-template",
+      "source_commit": "32d45957e31017b51c0aa2f17eed2769dfea5749",
+      "source_skill_path": ".agents/skills/dotnet-issue-implementation/SKILL.md",
+      "source_skill_blob_sha": "1c7cf9ba097e6fa1cc0855eb77c9490300bb8fcf",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Adapted from the template's repository-specific .NET library workflow into cross-repository guidance for APIs, workers and libraries. The original template remains the owner of its upstream skill; this catalog carries a curated adaptation.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "ec19e6775723167260c1a022b129c56ba14a8f36"
+      }
+    },
+    {
+      "id": "dotnet-security-review",
+      "category": "security",
+      "classification": "internal-adapted",
+      "path": "skills/dotnet-security-review",
+      "source_repository": "rodri-oliveira-dev/dotnet-library-template",
+      "source_commit": "32d45957e31017b51c0aa2f17eed2769dfea5749",
+      "source_skill_path": ".agents/skills/dotnet-security-review/SKILL.md",
+      "source_skill_blob_sha": "60d81bf8445f47c5962bc2ec1766bca390b3e0fb",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Adapted from the template's repository-specific .NET library workflow into cross-repository guidance for APIs, workers and libraries. The original template remains the owner of its upstream skill; this catalog carries a curated adaptation.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "7cda1dc170fa886a9899d5e14d5a739de7caf256"
+      }
     }
   ]
 }
