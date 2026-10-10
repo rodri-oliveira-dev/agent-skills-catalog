@@ -1,0 +1,57 @@
+name: Bootstrap official Agent Skills
+
+on:
+  push:
+    branches:
+      - feat/bootstrap-official-skills
+    paths:
+      - catalog.sources.json
+      - scripts/sync_official_skills.py
+      - .github/workflows/bootstrap-official-skills.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    if: github.ref_name == 'feat/bootstrap-official-skills'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout catalog
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Import pinned upstream skills
+        run: python3 scripts/sync_official_skills.py
+
+      - name: Verify inventory
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path(".")
+          catalog = json.loads((p / "catalog.sources.json").read_text())
+          lock = json.loads((p / "sources.lock.json").read_text())
+          count = sum(len(source["skills"]) for source in catalog["sources"])
+          assert len(lock["skills"]) == count
+          for entry in lock["skills"]:
+              target = p / "skills" / entry["name"]
+              assert (target / "SKILL.md").is_file()
+              assert len(list(target.rglob("*"))) >= len(entry["files_sha256"])
+          print(f"Validated {count} skills")
+          PY
+
+      - name: Commit imported snapshot to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- skills/ licenses/ sources.lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: vendor pinned official skill snapshots"
+            git push
+          else
+            echo "No new vendor changes"
+          fi
