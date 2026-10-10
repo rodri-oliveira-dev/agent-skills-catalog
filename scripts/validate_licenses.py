@@ -161,9 +161,23 @@ def validate(root: Path) -> int:
         fail("Source set differs between catalog and lock")
     if expected_names != set(lock_skills):
         fail("Skill set differs between catalog and lock")
+    # Internal/curated skills are independently tracked and validated by
+    # scripts/validate_curated_skills.py; they are never treated as official
+    # vendor snapshots or written into sources.lock.json.
+    curated_manifest = root / "catalog.curated.json"
+    curated_names: set[str] = set()
+    if curated_manifest.is_file():
+        curated_data = read_json(curated_manifest)
+        if curated_data.get("schema_version") != 1:
+            fail("Unsupported curated manifest schema")
+        curated_names = {entry["id"] for entry in curated_data.get("skills", [])}
+        if curated_names & expected_names:
+            fail("Official and curated catalogs contain duplicate skill names")
+        if len(curated_names) != len(curated_data.get("skills", [])):
+            fail("Duplicate names in curated catalog")
     actual_names = {p.name for p in (root / "skills").iterdir() if p.is_dir()}
-    if actual_names != expected_names:
-        fail("Mirrored skill directories differ from catalog allowlist")
+    if actual_names != expected_names | curated_names:
+        fail("Skill directories differ from official + curated catalog allowlists")
     return len(expected_names)
 
 

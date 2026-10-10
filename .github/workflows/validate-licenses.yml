@@ -6,6 +6,7 @@ on:
       - LICENSE
       - THIRD_PARTY_NOTICES.md
       - catalog.sources.json
+      - catalog.curated.json
       - sources.lock.json
       - skills/**
       - licenses/**
@@ -19,6 +20,7 @@ on:
       - LICENSE
       - THIRD_PARTY_NOTICES.md
       - catalog.sources.json
+      - catalog.curated.json
       - sources.lock.json
       - skills/**
       - licenses/**
@@ -43,3 +45,6 @@ jobs:
 
       - name: Validate copied skill licenses and provenance
         run: python3 scripts/validate_licenses.py
+
+      - name: Validate curated skill licenses, attributions and Git blob hashes
+        run: python3 scripts/validate_curated_skills.py
