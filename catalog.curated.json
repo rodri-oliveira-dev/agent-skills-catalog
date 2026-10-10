@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "description": "P0 curated internal skills: file-level provenance and source commits; independent from pinned official vendor catalog.",
+  "skills": [
+    {
+      "id": "ddd-domain-modeling",
+      "category": "domain-modeling",
+      "classification": "internal-adapted",
+      "path": "skills/ddd-domain-modeling",
+      "source_repository": "rodri-oliveira-dev/poc-arquitetura",
+      "source_commit": "6be55cf2a247bca9c2b20e8842ca5bf96f8dc7c1",
+      "source_skill_path": ".agents/skills/ddd-modeling-vernon/SKILL.md",
+      "source_skill_blob_sha": "2205aac77530da84c99667d979bd2560b975a67a",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__poc-arquitetura.LICENSE",
+      "upstream_attributions": [
+        "ciembor/agent-rules-books",
+        "tango238/distill-ddd"
+      ],
+      "notes": "Generalized and adapted for cross-repository use, with original source pinned.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "2b6a632c7ebb48f6edf85a8f3cad057347f4daa3"
+      }
+    },
+    {
+      "id": "ddd-dotnet-implementation",
+      "category": "architecture",
+      "classification": "internal-adapted",
+      "path": "skills/ddd-dotnet-implementation",
+      "source_repository": "rodri-oliveira-dev/poc-arquitetura",
+      "source_commit": "6be55cf2a247bca9c2b20e8842ca5bf96f8dc7c1",
+      "source_skill_path": ".agents/skills/ddd-implementation-vernon/SKILL.md",
+      "source_skill_blob_sha": "1a591883b3737580fee491e3264f4416222d2fb9",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__poc-arquitetura.LICENSE",
+      "upstream_attributions": [
+        "ciembor/agent-rules-books"
+      ],
+      "notes": "Generalized and adapted for cross-repository use, with original source pinned.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "1ce595b7eeecdf39020991bd6aa45f1f225169d0"
+      }
+    },
+    {
+      "id": "integration-tests-dotnet",
+      "category": "testing",
+      "classification": "internal-adapted",
+      "path": "skills/integration-tests-dotnet",
+      "source_repository": "rodri-oliveira-dev/poc-arquitetura",
+      "source_commit": "6be55cf2a247bca9c2b20e8842ca5bf96f8dc7c1",
+      "source_skill_path": ".agents/skills/integration-tests-dotnet/SKILL.md",
+      "source_skill_blob_sha": "fa414c11dbfc98e7567fa18c3a96d5afbece1d18",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__poc-arquitetura.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Generalized and adapted for cross-repository use, with original source pinned.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "2375a00a53685bc724c3a97f8cdf3289f228eb88"
+      }
+    },
+    {
+      "id": "repository-governance-sdd",
+      "category": "governance",
+      "classification": "internal-adapted",
+      "path": "skills/repository-governance-sdd",
+      "source_repository": "rodri-oliveira-dev/poc-arquitetura",
+      "source_commit": "6be55cf2a247bca9c2b20e8842ca5bf96f8dc7c1",
+      "source_skill_path": ".agents/skills/repository-governance-sdd/SKILL.md",
+      "source_skill_blob_sha": "9747123151f71260edb1b402f3f2d5e47dd62916",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__poc-arquitetura.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Generalized and adapted for cross-repository use, with original source pinned.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "d69fe894c130fb1f9b26178c8b54a54c3a85f30f"
+      }
+    },
+    {
+      "id": "dotnet-code-review",
+      "category": "code-review",
+      "classification": "first-party-adapted",
+      "path": "skills/dotnet-code-review",
+      "source_repository": "rodri-oliveira-dev/dotnet-copilot-code-review-skills",
+      "source_commit": "526ea000cc46d14886dac084c394122584d365cc",
+      "source_skill_path": ".github/skills/code-review/SKILL.md",
+      "source_skill_blob_sha": "997c01652585a66666cf2473f4f628acec45da0a",
+      "source_license": "not-published-in-source-repository",
+      "catalog_license": "MIT",
+      "license_review": "pending-maintainer-confirmation",
+      "source_license_file": null,
+      "upstream_attributions": [],
+      "notes": "Original repository has no root LICENSE. Review owner/contributor rights and explicitly confirm MIT redistribution before merging.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "62475194d94723379119dc52af17deb980ba436c",
+        "references/architecture.md": "9b6d427e6ed04f8c61e988ed6a915979deb4c376",
+        "references/async-concurrency.md": "0bc33fedb152b5047d0a583b82d5c7c12c1a207f",
+        "references/dapper.md": "0b6de5a352e296b4197a4d6b5802aa1f96fed0f6",
+        "references/dotnet-performance.md": "5892e2f738ca3b8bdaee2fbbe0eca138900a42b7",
+        "references/ef-core.md": "4519b2f53ca1863b18d6522c24eebac3bca7c91c",
+        "references/msbuild.md": "f56039078d904c49da873e9cf335d592585b548a",
+        "references/security.md": "d3fe4be0f20145f3384a927d6cd187312c1d58d6",
+        "references/testing.md": "def176f559b473b1774a4a3d74234741d6e03728",
+        "references/webapi.md": "f65d084115c41c3a88b27f12a4d443d3881c4355"
+      }
+    }
+  ]
+}
