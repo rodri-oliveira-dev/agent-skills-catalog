@@ -96,9 +96,19 @@ def main() -> None:
                 })
                 print(f"Imported {name}: {len(locked['skills'][-1]['files_sha256'])} files")
 
-            license_file = checkout / "LICENSE"
-            if license_file.is_file():
-                shutil.copyfile(license_file, LICENSES / (repo.replace("/", "__") + ".LICENSE"))
+            # Preserve license and any publisher-supplied NOTICE without running
+            # upstream scripts. A missing root LICENSE is permitted only for
+            # Angular, whose selected SKILL.md files declare MIT individually.
+            for legal_name in ("LICENSE", "NOTICE"):
+                original = checkout / legal_name
+                destination = LICENSES / (repo.replace("/", "__") + f".{legal_name}")
+                if original.is_file():
+                    shutil.copyfile(original, destination)
+                elif legal_name == "LICENSE" and repo != "angular/skills":
+                    raise FileNotFoundError(f"Missing upstream root license: {repo}/{legal_name}")
+                elif destination.exists():
+                    destination.unlink()
+
             locked["sources"].append({
                 "repository": repo, "commit": sha, "license": source["license"]
             })
