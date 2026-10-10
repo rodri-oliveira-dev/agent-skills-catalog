@@ -48,7 +48,6 @@ Modifications to adapted content are intentional and can be inspected against th
 | `ddd-dotnet-implementation` | [rodri-oliveira-dev/poc-arquitetura](https://github.com/rodri-oliveira-dev/poc-arquitetura) | Local MIT adaptation; third-party origins acknowledged below |
 | `integration-tests-dotnet` | [rodri-oliveira-dev/poc-arquitetura](https://github.com/rodri-oliveira-dev/poc-arquitetura) | MIT: `licenses/rodri-oliveira-dev__poc-arquitetura.LICENSE` |
 | `repository-governance-sdd` | [rodri-oliveira-dev/poc-arquitetura](https://github.com/rodri-oliveira-dev/poc-arquitetura) | MIT: `licenses/rodri-oliveira-dev__poc-arquitetura.LICENSE` |
-| `dotnet-code-review` | [rodri-oliveira-dev/dotnet-copilot-code-review-skills](https://github.com/rodri-oliveira-dev/dotnet-copilot-code-review-skills) | **Pending original owner/contributor confirmation**: the source repository has no published root license at the pinned revision. The adapted copy declares MIT in this catalog; review redistribution rights before merging. |
 | `dotnet-bug-investigation` | [rodri-oliveira-dev/dotnet-library-template](https://github.com/rodri-oliveira-dev/dotnet-library-template) | MIT; adapted from project-specific procedures. See `licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE`. |
 | `dotnet-issue-implementation` | [rodri-oliveira-dev/dotnet-library-template](https://github.com/rodri-oliveira-dev/dotnet-library-template) | MIT; adapted from project-specific procedures. See `licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE`. |
 | `dotnet-security-review` | [rodri-oliveira-dev/dotnet-library-template](https://github.com/rodri-oliveira-dev/dotnet-library-template) | MIT; adapted from project-specific procedures. See `licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE`. |
@@ -73,5 +72,4 @@ not reproduced as licensed skill files. No upstream publisher endorses this cata
 
 **License rule:** the MIT license at the catalog root covers newly authored catalog
 components and appropriately licensed local adaptations; official mirrors always
-retain their respective upstream licenses. Confirm unresolved ownership before
-distributing a curated adaptation.
+retain their respective upstream licenses. Unlicensed adaptations must remain outside published skill directories and the manifest until written permissions are verified.
