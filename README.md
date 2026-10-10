@@ -51,6 +51,38 @@ Install only the skill you need (example):
 npx skills add rodri-oliveira-dev/agent-skills-catalog --skill docker-compose-patterns --agent codex --copy --yes
 ```
 
+## P0 — Curated internal skills
+
+This catalog also contains adapted first-party/internal Agent Skills. Unlike the
+official snapshots above, these are **intentionally edited** to remove
+repository-specific paths, commands and assumptions.
+
+| Category | Skill | Use case |
+| --- | --- | --- |
+| DDD modeling | `ddd-domain-modeling` | Discovery, Event Storming, bounded contexts, ubiquitous language and aggregates |
+| DDD implementation | `ddd-dotnet-implementation` | .NET aggregates, invariants, value objects, domain events and context boundaries |
+| Testing | `integration-tests-dotnet` | WebApplicationFactory, database fidelity, Testcontainers and isolation |
+| Code review | `dotnet-code-review` | Diff-first .NET review with nine specialized reference files |
+| Governance | `repository-governance-sdd` | Agent Skills, AGENTS.md, ADRs and SDD workflows |
+
+- [`catalog.curated.json`](catalog.curated.json): original repository/path,
+  pinned commit and original source blob SHA, derivative attribution, review
+  status, and Git blob checksums of every adapted file.
+- [`scripts/validate_curated_skills.py`](scripts/validate_curated_skills.py):
+  offline validation of curated integrity, license evidence, and attribution.
+- [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md): MIT notices for the
+  third-party materials underlying the DDD adaptations.
+
+**Before merging:** confirm the right to redistribute the `dotnet-code-review`
+adaptation under MIT. Its original repository did not publish an explicit
+license at the pinned source commit; the pending review is clearly tracked,
+not silently treated as an official MIT skill.
+
+Do not add curated skills to `catalog.sources.json` or
+`sources.lock.json`: those files represent unmodified official vendor
+snapshots only. Any future update to a curated skill must be adapted and
+reviewed as its own change, updating `catalog.curated.json` in the same PR.
+
 ## Source of truth and provenance
 
 - [`catalog.sources.json`](catalog.sources.json) is an explicit allowlist of **official upstream folders**, with a pinned source commit, category and license.
@@ -64,8 +96,8 @@ For now, upgrades require reviewing and changing the pinned commit in `catalog.s
 
 ### Not in scope yet
 
-- Mirroring personal/community skills from other repositories.
+- Expanding the curated internal/community skills inventory beyond this reviewed P0.
 - Automatic skill recommendation by repository dependencies, architectural patterns or testing tools.
 - An automatic upstream-update scheduling or alerting system.
 
-These will be separate, reviewable improvements. Treat all imported scripts and Agent Skill instructions as untrusted until reviewed.
+These will be separate, reviewable improvements. Treat all imported scripts and Agent Skill instructions as untrusted until reviewed. Curated skills may reference tools or architectural conventions that must be confirmed in each consumer repository.
