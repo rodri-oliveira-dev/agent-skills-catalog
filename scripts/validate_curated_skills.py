@@ -57,6 +57,7 @@ def validate_curated(root: Path) -> set[str]:
         if owner not in {
             "rodri-oliveira-dev/poc-arquitetura",
             "rodri-oliveira-dev/dotnet-copilot-code-review-skills",
+            "rodri-oliveira-dev/dotnet-library-template",
         }:
             raise ValueError(f"Unreviewed curated source repository: {owner}")
         for key in ("source_commit", "source_skill_blob_sha"):
