@@ -51,7 +51,7 @@ Install only the skill you need (example):
 npx skills add rodri-oliveira-dev/agent-skills-catalog --skill docker-compose-patterns --agent codex --copy --yes
 ```
 
-## P0 — Curated internal skills
+## Curated internal skills — P0 + selected P1
 
 This catalog also contains adapted first-party/internal Agent Skills. Unlike the
 official snapshots above, these are **intentionally edited** to remove
@@ -82,6 +82,24 @@ Do not add curated skills to `catalog.sources.json` or
 `sources.lock.json`: those files represent unmodified official vendor
 snapshots only. Any future update to a curated skill must be adapted and
 reviewed as its own change, updating `catalog.curated.json` in the same PR.
+
+
+### Selected P1 .NET workflows (#12–#14)
+
+Added to the same curated-skills PR, adapted from
+[`dotnet-library-template`](https://github.com/rodri-oliveira-dev/dotnet-library-template):
+
+| Skill | Purpose |
+| --- | --- |
+| `dotnet-bug-investigation` | Reproduce, diagnose and fix .NET bugs with regression evidence |
+| `dotnet-issue-implementation` | Implement scoped .NET issues while tracing the Definition of Done |
+| `dotnet-security-review` | Threat-aware review of .NET code, configuration and CI without replacing scanners |
+
+These three entries support libraries, APIs and workers; they do not assume
+the template's specific structure, CI baseline or optional companion skills.
+The upstream template keeps ownership of its own copies. The catalog publishes
+separate curated adaptations with pinned provenance and the source MIT notice
+in `licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE`.
 
 ## Source of truth and provenance
 
