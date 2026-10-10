@@ -81,7 +81,7 @@ def reconcile_removed(
 
     for item in previous_lock.get("sources", []):
         repo = item["repository"]
-        if not REPO_PATTERN.fullmatch(repo):
+        if not REPO_PATTERN.fullmatch(repo) or any(part in (".", "..") for part in repo.split("/")):
             raise ValueError(f"Unsafe repository in previous official lock: {repo!r}")
         if repo in desired_repositories:
             continue
@@ -100,6 +100,27 @@ def reconcile_removed(
                 raise ValueError(f"Unexpected non-file in license path: {target}")
 
     return removed_skills, removed_licenses
+
+
+
+
+def adapt_unbundled_skill_links(content: str, repo: str, sha: str, name: str) -> str:
+    """Replace an unavailable sibling-skill link with a pinned upstream URL.
+
+    A source repo can contain more skills than our reviewed allowlist, and the
+    Skills CLI can install an individual skill without its siblings. Keep this
+    explicitly documented local fix deterministic and narrow in scope.
+    """
+    if (repo, name) != ("google/skills", "bigquery-basics"):
+        return content
+    broken_link = "](../bigquery-ai-ml)"
+    if content.count(broken_link) != 1:
+        raise ValueError("BigQuery upstream cross-skill link changed; manual review needed")
+    fixed_link = (
+        "](https://github.com/google/skills/tree/"
+        f"{sha}/skills/cloud/bigquery-ai-ml)"
+    )
+    return content.replace(broken_link, fixed_link)
 
 
 
@@ -131,7 +152,9 @@ def main() -> None:
     with tempfile.TemporaryDirectory(prefix="skill-import-") as tmp:
         for source in manifest["sources"]:
             repo, sha = source["repository"], source["commit"]
-            if not REPO_PATTERN.fullmatch(repo) or not SHA_PATTERN.fullmatch(sha):
+            if (not REPO_PATTERN.fullmatch(repo)
+                or any(part in (".", "..") for part in repo.split("/"))
+                or not SHA_PATTERN.fullmatch(sha)):
                 raise ValueError(f"Invalid pinned source: {repo}@{sha}")
 
             # Treat upstream content as untrusted: no script execution or hooks.
@@ -160,9 +183,16 @@ def main() -> None:
                 ):
                     raise ValueError(f"Invalid skill frontmatter: {repo}/{skill['path']}")
                 target = SKILLS / name
+                if target.is_symlink():
+                    raise ValueError(f"Refusing to replace symlinked skill: {target}")
                 if target.exists():
                     shutil.rmtree(target)
                 shutil.copytree(upstream, target)
+                # Only adjust the single documented BigQuery sibling link;
+                # consumers can install bigquery-basics without AI/ML.
+                curated_meta = adapt_unbundled_skill_links(meta, repo, sha, name)
+                if curated_meta != meta:
+                    (target / "SKILL.md").write_text(curated_meta, encoding="utf-8")
                 locked["skills"].append({
                     "name": name, "category": skill["category"],
                     "source_repository": repo, "source_path": skill["path"],
