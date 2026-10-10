@@ -121,5 +121,29 @@ class CuratedSkillTests(unittest.TestCase):
             validate_curated(self.root)
 
 
+    def test_dotnet_library_template_is_validated_as_mit_source(self) -> None:
+        entry = self.data["skills"][0]
+        entry.update({
+            "source_repository": "rodri-oliveira-dev/dotnet-library-template",
+            "source_skill_path": ".agents/skills/dotnet-security-review/SKILL.md",
+            "source_license_file": "licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE",
+        })
+        (self.root / "licenses" / "rodri-oliveira-dev__dotnet-library-template.LICENSE").write_text(
+            "MIT License\\nPermission is hereby granted\\n".replace("\\\\n", "\\n"),
+            encoding="utf-8",
+        )
+        (self.root / "THIRD_PARTY_NOTICES.md").write_text(
+            "rodri-oliveira-dev/dotnet-library-template", encoding="utf-8"
+        )
+        self.persist()
+        self.assertEqual(validate_curated(self.root), {self.name})
+
+    def test_unreviewed_curated_source_is_rejected(self) -> None:
+        self.data["skills"][0]["source_repository"] = "random-publisher/skills"
+        self.persist()
+        with self.assertRaisesRegex(ValueError, "Unreviewed curated source"):
+            validate_curated(self.root)
+
+
 if __name__ == "__main__":
     unittest.main()
