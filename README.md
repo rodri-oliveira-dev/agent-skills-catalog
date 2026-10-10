@@ -37,6 +37,8 @@ require an explicit policy review; the CI will reject unreviewed licenses.
 
 The complete folder for each skill lives at `skills/<name>/`, including any `references/`, `scripts/`, `assets/`, `checks/`, or other upstream files. A skill's presence here does not mean it is installed automatically in every consumer repository.
 
+**Documented portability exception:** `bigquery-basics/SKILL.md` has one automatically applied link adjustment: the original relative reference to the **unbundled** `bigquery-ai-ml` skill becomes an absolute URL pinned to the same `google/skills` source commit. This makes the reference usable even when a consumer installs only `bigquery-basics`. The official upstream text and attribution otherwise remain unchanged. The sync script reproduces the patch and the generated lock records the resulting file hash.
+
 ## Install in Codex
 
 Using the [Skills CLI](https://github.com/vercel-labs/skills), list what this repository publishes:
