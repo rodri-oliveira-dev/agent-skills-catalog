@@ -1,0 +1,45 @@
+name: Validate third-party licenses
+
+on:
+  pull_request:
+    paths:
+      - LICENSE
+      - THIRD_PARTY_NOTICES.md
+      - catalog.sources.json
+      - sources.lock.json
+      - skills/**
+      - licenses/**
+      - scripts/**
+      - tests/**
+      - .github/workflows/validate-licenses.yml
+  push:
+    branches:
+      - main
+    paths:
+      - LICENSE
+      - THIRD_PARTY_NOTICES.md
+      - catalog.sources.json
+      - sources.lock.json
+      - skills/**
+      - licenses/**
+      - scripts/**
+      - tests/**
+      - .github/workflows/validate-licenses.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-license-provenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run regression tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Validate copied skill licenses and provenance
+        run: python3 scripts/validate_licenses.py
