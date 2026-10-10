@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.sync_official_skills import reconcile_removed
+from scripts.sync_official_skills import adapt_unbundled_skill_links, reconcile_removed
 
 
 class OfficialSyncReconciliationTests(unittest.TestCase):
@@ -89,6 +89,24 @@ class OfficialSyncReconciliationTests(unittest.TestCase):
             self.reconcile({"skills": [{"name": "../outside"}]}, set(), set())
         with self.assertRaisesRegex(ValueError, "Unsafe repository"):
             self.reconcile({"sources": [{"repository": "../outside"}]}, set(), set())
+
+    def test_bigquery_unbundled_link_uses_immutable_official_url(self) -> None:
+        sha = "a" * 40
+        original = "## Related Skills\n\n- [BigQuery AI & ML Skill](../bigquery-ai-ml)\n"
+        adapted = adapt_unbundled_skill_links(original, "google/skills", sha, "bigquery-basics")
+        self.assertIn(f"https://github.com/google/skills/tree/{sha}/skills/cloud/bigquery-ai-ml", adapted)
+        self.assertNotIn("](../bigquery-ai-ml)", adapted)
+
+    def test_other_skills_remain_unmodified(self) -> None:
+        text = "[Foo](../another-skill)"
+        self.assertEqual(
+            adapt_unbundled_skill_links(text, "dotnet/skills", "a" * 40, "run-tests"),
+            text,
+        )
+
+    def test_bigquery_link_change_fails_closed(self) -> None:
+        with self.assertRaisesRegex(ValueError, "manual review"):
+            adapt_unbundled_skill_links("# Changed upstream", "google/skills", "a" * 40, "bigquery-basics")
 
     def test_reject_symlinked_legacy_skill(self) -> None:
         outside = self.root / "outside"
