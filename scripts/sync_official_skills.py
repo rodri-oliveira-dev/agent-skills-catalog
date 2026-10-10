@@ -44,6 +44,65 @@ def fingerprint(root: Path) -> dict[str, str]:
     }
 
 
+
+def reconcile_removed(
+    previous_lock: dict,
+    desired_names: set[str],
+    desired_repositories: set[str],
+    curated_names: set[str],
+    protected_license_filenames: set[str],
+    *,
+    skills_dir: Path,
+    licenses_dir: Path,
+) -> tuple[list[str], list[str]]:
+    """Prune only prior *official-managed* entries no longer allowlisted.
+
+    Never remove unknown directories or adapted/internal skills: other catalog
+    categories maintain their own manifests and lifecycles. Unknown entries
+    are rejected later by the validator instead of silently deleted.
+    """
+    removed_skills: list[str] = []
+    removed_licenses: list[str] = []
+
+    for item in previous_lock.get("skills", []):
+        name = item["name"]
+        if not NAME_PATTERN.fullmatch(name):
+            raise ValueError(f"Unsafe name in previous official lock: {name!r}")
+        if name in desired_names or name in curated_names:
+            continue
+        target = skills_dir / name
+        if target.is_symlink():
+            raise ValueError(f"Refusing to delete symlinked skill: {target}")
+        if target.is_dir():
+            shutil.rmtree(target)
+            removed_skills.append(name)
+        elif target.exists():
+            raise ValueError(f"Unexpected non-directory in official skill path: {target}")
+
+    for item in previous_lock.get("sources", []):
+        repo = item["repository"]
+        if not REPO_PATTERN.fullmatch(repo):
+            raise ValueError(f"Unsafe repository in previous official lock: {repo!r}")
+        if repo in desired_repositories:
+            continue
+        prefix = repo.replace("/", "__")
+        for legal_name in ("LICENSE", "NOTICE"):
+            filename = f"{prefix}.{legal_name}"
+            if filename in protected_license_filenames:
+                continue
+            target = licenses_dir / filename
+            if target.is_symlink():
+                raise ValueError(f"Refusing to delete symlinked license: {target}")
+            if target.is_file():
+                target.unlink()
+                removed_licenses.append(filename)
+            elif target.exists():
+                raise ValueError(f"Unexpected non-file in license path: {target}")
+
+    return removed_skills, removed_licenses
+
+
+
 def main() -> None:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     if manifest.get("schema_version") != 1:
@@ -51,6 +110,21 @@ def main() -> None:
 
     SKILLS.mkdir(exist_ok=True)
     LICENSES.mkdir(exist_ok=True)
+    # Keep a snapshot of the last official-managed state *before* overwriting
+    # sources.lock.json, including skills that may have been removed/renamed.
+    previous_lock = json.loads(LOCK.read_text(encoding="utf-8")) if LOCK.is_file() else {}
+    curated_manifest = ROOT / "catalog.curated.json"
+    curated_data = json.loads(curated_manifest.read_text(encoding="utf-8")) if curated_manifest.is_file() else {}
+    curated_names = {entry["id"] for entry in curated_data.get("skills", [])}
+    protected_license_filenames = {
+        Path(entry["source_license_file"]).name
+        for entry in curated_data.get("skills", [])
+        if entry.get("source_license_file")
+    }
+    desired_names = {skill["name"] for source in manifest["sources"] for skill in source["skills"]}
+    desired_repositories = {source["repository"] for source in manifest["sources"]}
+    if desired_names & curated_names:
+        raise ValueError("Official skills overlap with independently curated skills")
     all_names: set[str] = set()
     locked = {"schema_version": 1, "sources": [], "skills": []}
 
@@ -113,8 +187,21 @@ def main() -> None:
                 "repository": repo, "commit": sha, "license": source["license"]
             })
 
+    # Only after a successful import, reconcile previously published official
+    # entries against the current allowlist. Preserve independently curated
+    # skills and their licenses in subsequent phases.
+    removed_skills, removed_licenses = reconcile_removed(
+        previous_lock,
+        desired_names,
+        desired_repositories,
+        curated_names,
+        protected_license_filenames,
+        skills_dir=SKILLS,
+        licenses_dir=LICENSES,
+    )
     LOCK.write_text(json.dumps(locked, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Imported {len(locked['skills'])} curated skills from {len(locked['sources'])} pinned sources.")
+    print(f"Imported {len(locked['skills'])} official skills from {len(locked['sources'])} pinned sources.")
+    print(f"Removed obsolete official skills: {removed_skills}; licenses: {removed_licenses}")
 
 
 if __name__ == "__main__":
