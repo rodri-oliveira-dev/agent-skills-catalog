@@ -142,12 +142,12 @@ class CuratedSkillTests(unittest.TestCase):
                 else "tango238__distill-ddd.LICENSE"
             )
             (self.root / "licenses" / target).write_text(
-                "MIT License\\nPermission is hereby granted\\n".replace("\\\\n", "\\n"),
+                "MIT License\nPermission is hereby granted\n",
                 encoding="utf-8",
             )
         (self.root / "THIRD_PARTY_NOTICES.md").write_text(
-            "rodri-oliveira-dev/poc-arquitetura\\n"
-            + "\\n".join(required) + "\\n",
+            "rodri-oliveira-dev/poc-arquitetura\n"
+            + "\n".join(required) + "\n",
             encoding="utf-8",
         )
         self.persist()
