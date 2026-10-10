@@ -47,7 +47,7 @@ Ela respeita as estratégias de teste existentes e decisões arquiteturais regis
 
 1. Identifique se o teste exige pipeline HTTP real, DI completo, provider de banco real ou apenas comportamento isolado.
 2. Consulte `AGENTS.md`, README, `docs/development/test-coverage.md` e ADRs relevantes antes de mudar a estrategia.
-3. Quando a tarefa incluir mudanca funcional relevante, alinhe a estrategia com `dotnet-service-change` antes de alterar factories, providers ou fixtures.
+3. Quando a tarefa incluir mudança funcional relevante, alinhe a estratégia de integração aos requisitos, aos testes existentes e às convenções documentadas no repositório consumidor antes de alterar factories, providers ou fixtures. Não exija uma skill complementar que não esteja instalada.
 4. Localize a factory existente do servico e preserve seu padrao quando suficiente.
 5. Desligue hosted services externos em testes quando eles nao forem parte do comportamento validado.
 6. Use EF InMemory apenas quando constraints, SQL, transacoes, migrations e provider Npgsql nao forem o alvo do teste.
