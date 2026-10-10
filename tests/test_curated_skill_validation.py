@@ -90,10 +90,10 @@ class CuratedSkillTests(unittest.TestCase):
             "license_review": "approved"
         })
         self.persist()
-        with self.assertRaisesRegex(ValueError, "Unlicensed upstream"):
+        with self.assertRaisesRegex(ValueError, "Unlicensed or unreviewed curated source"):
             validate_curated(self.root)
 
-    def test_pending_confirmation_is_distinguished(self) -> None:
+    def test_pending_license_is_not_publishable(self) -> None:
         entry = self.data["skills"][0]
         entry.update({
             "source_repository": "rodri-oliveira-dev/dotnet-copilot-code-review-skills",
@@ -105,13 +105,69 @@ class CuratedSkillTests(unittest.TestCase):
             "rodri-oliveira-dev/dotnet-copilot-code-review-skills", encoding="utf-8"
         )
         self.persist()
-        self.assertEqual(validate_curated(self.root), {self.name})
+        with self.assertRaisesRegex(ValueError, "Unapproved curated skill license"):
+            validate_curated(self.root)
 
     def test_ddd_derivative_copyright_notice_required(self) -> None:
         entry = self.data["skills"][0]
         entry["upstream_attributions"] = ["ciembor/agent-rules-books"]
         self.persist()
         with self.assertRaisesRegex(ValueError, "Missing derivative source license"):
+            validate_curated(self.root)
+
+    def prepare_ddd(self, name: str) -> None:
+        """Make an otherwise valid fixture for either DDD skill."""
+        folder = self.root / "skills" / self.name
+        new_folder = self.root / "skills" / name
+        folder.rename(new_folder)
+        skill_file = new_folder / "SKILL.md"
+        content = skill_file.read_text(encoding="utf-8").replace(self.name, name)
+        skill_file.write_text(content, encoding="utf-8")
+        entry = self.data["skills"][0]
+        entry.update({
+            "id": name,
+            "path": f"skills/{name}",
+            "files_git_blob_sha1": {"SKILL.md": blob_sha(content.encode())},
+        })
+        required = (
+            ["ciembor/agent-rules-books", "tango238/distill-ddd"]
+            if name == "ddd-domain-modeling"
+            else ["ciembor/agent-rules-books"]
+        )
+        entry["upstream_attributions"] = required
+        for source in required:
+            target = (
+                "ciembor__agent-rules-books.LICENSE"
+                if source == "ciembor/agent-rules-books"
+                else "tango238__distill-ddd.LICENSE"
+            )
+            (self.root / "licenses" / target).write_text(
+                "MIT License\\nPermission is hereby granted\\n".replace("\\\\n", "\\n"),
+                encoding="utf-8",
+            )
+        (self.root / "THIRD_PARTY_NOTICES.md").write_text(
+            "rodri-oliveira-dev/poc-arquitetura\\n"
+            + "\\n".join(required) + "\\n",
+            encoding="utf-8",
+        )
+        self.persist()
+
+    def test_modeling_ddd_attribution_cannot_be_removed(self) -> None:
+        self.prepare_ddd("ddd-domain-modeling")
+        self.assertEqual(validate_curated(self.root), {"ddd-domain-modeling"})
+        self.data["skills"][0]["upstream_attributions"] = [
+            "ciembor/agent-rules-books"
+        ]
+        self.persist()
+        with self.assertRaisesRegex(ValueError, "Required DDD derivative attributions"):
+            validate_curated(self.root)
+
+    def test_implementation_ddd_attribution_cannot_be_removed(self) -> None:
+        self.prepare_ddd("ddd-dotnet-implementation")
+        self.assertEqual(validate_curated(self.root), {"ddd-dotnet-implementation"})
+        self.data["skills"][0]["upstream_attributions"] = []
+        self.persist()
+        with self.assertRaisesRegex(ValueError, "Required DDD derivative attributions"):
             validate_curated(self.root)
 
     def test_reject_duplicate_skills(self) -> None:
