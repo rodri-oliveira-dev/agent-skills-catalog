@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "P0 curated internal skills: file-level provenance and source commits; independent from pinned official vendor catalog.",
+  "description": "Curated internal skills: reviewed P0 plus selected P1, with pinned origins and file-level integrity. Unlicensed candidates are not published.",
   "skills": [
     {
       "id": "ddd-domain-modeling",
@@ -61,7 +61,7 @@
       "upstream_attributions": [],
       "notes": "Generalized and adapted for cross-repository use, with original source pinned.",
       "files_git_blob_sha1": {
-        "SKILL.md": "2375a00a53685bc724c3a97f8cdf3289f228eb88"
+        "SKILL.md": "ce48d81cb42086f6a0bd5ef114c49e9b85f62817"
       }
     },
     {
@@ -81,34 +81,6 @@
       "notes": "Generalized and adapted for cross-repository use, with original source pinned.",
       "files_git_blob_sha1": {
         "SKILL.md": "d69fe894c130fb1f9b26178c8b54a54c3a85f30f"
-      }
-    },
-    {
-      "id": "dotnet-code-review",
-      "category": "code-review",
-      "classification": "first-party-adapted",
-      "path": "skills/dotnet-code-review",
-      "source_repository": "rodri-oliveira-dev/dotnet-copilot-code-review-skills",
-      "source_commit": "526ea000cc46d14886dac084c394122584d365cc",
-      "source_skill_path": ".github/skills/code-review/SKILL.md",
-      "source_skill_blob_sha": "997c01652585a66666cf2473f4f628acec45da0a",
-      "source_license": "not-published-in-source-repository",
-      "catalog_license": "MIT",
-      "license_review": "pending-maintainer-confirmation",
-      "source_license_file": null,
-      "upstream_attributions": [],
-      "notes": "Original repository has no root LICENSE. Review owner/contributor rights and explicitly confirm MIT redistribution before merging.",
-      "files_git_blob_sha1": {
-        "SKILL.md": "62475194d94723379119dc52af17deb980ba436c",
-        "references/architecture.md": "9b6d427e6ed04f8c61e988ed6a915979deb4c376",
-        "references/async-concurrency.md": "0bc33fedb152b5047d0a583b82d5c7c12c1a207f",
-        "references/dapper.md": "0b6de5a352e296b4197a4d6b5802aa1f96fed0f6",
-        "references/dotnet-performance.md": "5892e2f738ca3b8bdaee2fbbe0eca138900a42b7",
-        "references/ef-core.md": "4519b2f53ca1863b18d6522c24eebac3bca7c91c",
-        "references/msbuild.md": "f56039078d904c49da873e9cf335d592585b548a",
-        "references/security.md": "d3fe4be0f20145f3384a927d6cd187312c1d58d6",
-        "references/testing.md": "def176f559b473b1774a4a3d74234741d6e03728",
-        "references/webapi.md": "f65d084115c41c3a88b27f12a4d443d3881c4355"
       }
     },
     {
