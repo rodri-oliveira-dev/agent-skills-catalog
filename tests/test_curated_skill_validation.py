@@ -194,6 +194,24 @@ class CuratedSkillTests(unittest.TestCase):
         self.persist()
         self.assertEqual(validate_curated(self.root), {self.name})
 
+    def test_adr_guard_is_reviewed_mit_source(self) -> None:
+        entry = self.data["skills"][0]
+        entry.update({
+            "source_repository": "rodri-oliveira-dev/adr-guard",
+            "source_skill_path": "skills/adr-guard-create/SKILL.md",
+            "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+            "classification": "internal-verbatim",
+        })
+        (self.root / "licenses" / "rodri-oliveira-dev__adr-guard.LICENSE").write_text(
+            "MIT License\\nPermission is hereby granted\\n",
+            encoding="utf-8",
+        )
+        (self.root / "THIRD_PARTY_NOTICES.md").write_text(
+            "rodri-oliveira-dev/adr-guard", encoding="utf-8"
+        )
+        self.persist()
+        self.assertEqual(validate_curated(self.root), {self.name})
+
     def test_unreviewed_curated_source_is_rejected(self) -> None:
         self.data["skills"][0]["source_repository"] = "random-publisher/skills"
         self.persist()

@@ -139,6 +139,215 @@
       "files_git_blob_sha1": {
         "SKILL.md": "7cda1dc170fa886a9899d5e14d5a739de7caf256"
       }
+    },
+    {
+      "id": "adr-guard-audit",
+      "category": "governance",
+      "classification": "internal-verbatim",
+      "path": "skills/adr-guard-audit",
+      "source_repository": "rodri-oliveira-dev/adr-guard",
+      "source_commit": "061ab45a4d4011ec800fca3ca3342f5fbe394086",
+      "source_skill_path": "skills/adr-guard-audit/SKILL.md",
+      "source_skill_blob_sha": "8055dd4a42fcdba49cceec712b3c6e4222199e1f",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Unmodified, pinned ADR Guard skill. ADR Guard CLI/Action is installed separately when required.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "8055dd4a42fcdba49cceec712b3c6e4222199e1f"
+      }
+    },
+    {
+      "id": "adr-guard-ci-setup",
+      "category": "devops",
+      "classification": "internal-verbatim",
+      "path": "skills/adr-guard-ci-setup",
+      "source_repository": "rodri-oliveira-dev/adr-guard",
+      "source_commit": "061ab45a4d4011ec800fca3ca3342f5fbe394086",
+      "source_skill_path": "skills/adr-guard-ci-setup/SKILL.md",
+      "source_skill_blob_sha": "3cd9ef444bcad6d89d29da62dc99a683d57a93a7",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Unmodified, pinned ADR Guard skill. ADR Guard CLI/Action is installed separately when required.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "3cd9ef444bcad6d89d29da62dc99a683d57a93a7"
+      }
+    },
+    {
+      "id": "adr-guard-create",
+      "category": "documentation",
+      "classification": "internal-verbatim",
+      "path": "skills/adr-guard-create",
+      "source_repository": "rodri-oliveira-dev/adr-guard",
+      "source_commit": "061ab45a4d4011ec800fca3ca3342f5fbe394086",
+      "source_skill_path": "skills/adr-guard-create/SKILL.md",
+      "source_skill_blob_sha": "46b23e5a9d294483d15502ce39f4ab484a654106",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Unmodified, pinned ADR Guard skill. ADR Guard CLI/Action is installed separately when required.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "46b23e5a9d294483d15502ce39f4ab484a654106"
+      }
+    },
+    {
+      "id": "adr-guard-init",
+      "category": "governance",
+      "classification": "internal-verbatim",
+      "path": "skills/adr-guard-init",
+      "source_repository": "rodri-oliveira-dev/adr-guard",
+      "source_commit": "061ab45a4d4011ec800fca3ca3342f5fbe394086",
+      "source_skill_path": "skills/adr-guard-init/SKILL.md",
+      "source_skill_blob_sha": "f67ddd94f3b6c42b46168744b02bdc8b8a5c14fb",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Unmodified, pinned ADR Guard skill. ADR Guard CLI/Action is installed separately when required.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "f67ddd94f3b6c42b46168744b02bdc8b8a5c14fb"
+      }
+    },
+    {
+      "id": "adr-guard-lifecycle",
+      "category": "governance",
+      "classification": "internal-verbatim",
+      "path": "skills/adr-guard-lifecycle",
+      "source_repository": "rodri-oliveira-dev/adr-guard",
+      "source_commit": "061ab45a4d4011ec800fca3ca3342f5fbe394086",
+      "source_skill_path": "skills/adr-guard-lifecycle/SKILL.md",
+      "source_skill_blob_sha": "b7661e20b836d08f08b4fce1b0748903ad9524b0",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Unmodified, pinned ADR Guard skill. ADR Guard CLI/Action is installed separately when required.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "b7661e20b836d08f08b4fce1b0748903ad9524b0"
+      }
+    },
+    {
+      "id": "adr-guard-supersede",
+      "category": "governance",
+      "classification": "internal-verbatim",
+      "path": "skills/adr-guard-supersede",
+      "source_repository": "rodri-oliveira-dev/adr-guard",
+      "source_commit": "061ab45a4d4011ec800fca3ca3342f5fbe394086",
+      "source_skill_path": "skills/adr-guard-supersede/SKILL.md",
+      "source_skill_blob_sha": "4ed873c92ce4f9e135e4d9d9b12df47e91ce5451",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Unmodified, pinned ADR Guard skill. ADR Guard CLI/Action is installed separately when required.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "4ed873c92ce4f9e135e4d9d9b12df47e91ce5451"
+      }
+    },
+    {
+      "id": "adr-guard-team-adoption",
+      "category": "governance",
+      "classification": "internal-verbatim",
+      "path": "skills/adr-guard-team-adoption",
+      "source_repository": "rodri-oliveira-dev/adr-guard",
+      "source_commit": "061ab45a4d4011ec800fca3ca3342f5fbe394086",
+      "source_skill_path": "skills/adr-guard-team-adoption/SKILL.md",
+      "source_skill_blob_sha": "bebe55c9d6ed16cb9009c1cfdc5ac362da566315",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Unmodified, pinned ADR Guard skill. ADR Guard CLI/Action is installed separately when required.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "bebe55c9d6ed16cb9009c1cfdc5ac362da566315"
+      }
+    },
+    {
+      "id": "adr-guard-technical-review",
+      "category": "architecture",
+      "classification": "internal-verbatim",
+      "path": "skills/adr-guard-technical-review",
+      "source_repository": "rodri-oliveira-dev/adr-guard",
+      "source_commit": "061ab45a4d4011ec800fca3ca3342f5fbe394086",
+      "source_skill_path": "skills/adr-guard-technical-review/SKILL.md",
+      "source_skill_blob_sha": "a94422b880eddc5d2018b7d4f321167698ff3609",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Unmodified, pinned ADR Guard skill. ADR Guard CLI/Action is installed separately when required.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "a94422b880eddc5d2018b7d4f321167698ff3609"
+      }
+    },
+    {
+      "id": "adr-guard-tradeoff-analysis",
+      "category": "architecture",
+      "classification": "internal-verbatim",
+      "path": "skills/adr-guard-tradeoff-analysis",
+      "source_repository": "rodri-oliveira-dev/adr-guard",
+      "source_commit": "061ab45a4d4011ec800fca3ca3342f5fbe394086",
+      "source_skill_path": "skills/adr-guard-tradeoff-analysis/SKILL.md",
+      "source_skill_blob_sha": "510a07ad09cf19856f66dfbe6de6377fd4a5ef9d",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Unmodified, pinned ADR Guard skill. ADR Guard CLI/Action is installed separately when required.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "510a07ad09cf19856f66dfbe6de6377fd4a5ef9d"
+      }
+    },
+    {
+      "id": "adr-guard-validate",
+      "category": "quality",
+      "classification": "internal-verbatim",
+      "path": "skills/adr-guard-validate",
+      "source_repository": "rodri-oliveira-dev/adr-guard",
+      "source_commit": "061ab45a4d4011ec800fca3ca3342f5fbe394086",
+      "source_skill_path": "skills/adr-guard-validate/SKILL.md",
+      "source_skill_blob_sha": "e98eadcbc477a66c6f35b610420377b62075d9ff",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Unmodified, pinned ADR Guard skill. ADR Guard CLI/Action is installed separately when required.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "e98eadcbc477a66c6f35b610420377b62075d9ff"
+      }
+    },
+    {
+      "id": "adr-guard-when-to-record",
+      "category": "governance",
+      "classification": "internal-verbatim",
+      "path": "skills/adr-guard-when-to-record",
+      "source_repository": "rodri-oliveira-dev/adr-guard",
+      "source_commit": "061ab45a4d4011ec800fca3ca3342f5fbe394086",
+      "source_skill_path": "skills/adr-guard-when-to-record/SKILL.md",
+      "source_skill_blob_sha": "26e8a57b18440b2d9e1890cd0b016a6684f14e96",
+      "source_license": "MIT",
+      "catalog_license": "MIT",
+      "license_review": "approved",
+      "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
+      "upstream_attributions": [],
+      "notes": "Unmodified, pinned ADR Guard skill. ADR Guard CLI/Action is installed separately when required.",
+      "files_git_blob_sha1": {
+        "SKILL.md": "26e8a57b18440b2d9e1890cd0b016a6684f14e96"
+      }
     }
   ]
 }

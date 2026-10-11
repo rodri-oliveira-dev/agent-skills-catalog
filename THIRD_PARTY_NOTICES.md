@@ -44,13 +44,14 @@ This is an independent community catalog, **not** an official redistribution
 or endorsement by Microsoft, Google, Docker or HashiCorp. Some skills require
 tools or components not provided here.
 
-## Curated internal skills — P0 and selected P1
+## Curated internal skills — adaptations and pinned first-party skills
 
-Unlike the verbatim official-source `skills`, the entries below are **reviewed adaptations**
-of skills authored or maintained in this GitHub account. They are tracked separately in
-[`catalog.curated.json`](catalog.curated.json) with immutable source commit, original
-path, original skill blob SHA, license review status and hashes of catalog files.
-Modifications to adapted content are intentional and can be inspected against the pinned source.
+These reviewed skills are authored or maintained in this GitHub account. Seven entries
+are **adaptations**, while the 11 ADR Guard entries are **verbatim pinned copies**.
+All are tracked separately in [`catalog.curated.json`](catalog.curated.json) with
+immutable source commit, original path, original skill blob SHA, license review
+status and hashes of catalog files. Intentional changes to adaptations can be
+inspected against their pinned origins.
 
 | Curated skill | Source | Legal status |
 | --- | --- | --- |
@@ -61,6 +62,22 @@ Modifications to adapted content are intentional and can be inspected against th
 | `dotnet-bug-investigation` | [rodri-oliveira-dev/dotnet-library-template](https://github.com/rodri-oliveira-dev/dotnet-library-template) | MIT; adapted from project-specific procedures. See `licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE`. |
 | `dotnet-issue-implementation` | [rodri-oliveira-dev/dotnet-library-template](https://github.com/rodri-oliveira-dev/dotnet-library-template) | MIT; adapted from project-specific procedures. See `licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE`. |
 | `dotnet-security-review` | [rodri-oliveira-dev/dotnet-library-template](https://github.com/rodri-oliveira-dev/dotnet-library-template) | MIT; adapted from project-specific procedures. See `licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE`. |
+| `adr-guard-audit` | [rodri-oliveira-dev/adr-guard](https://github.com/rodri-oliveira-dev/adr-guard) | MIT; verbatim pinned copy. See `licenses/rodri-oliveira-dev__adr-guard.LICENSE`. |
+| `adr-guard-ci-setup` | [rodri-oliveira-dev/adr-guard](https://github.com/rodri-oliveira-dev/adr-guard) | MIT; verbatim pinned copy. See `licenses/rodri-oliveira-dev__adr-guard.LICENSE`. |
+| `adr-guard-create` | [rodri-oliveira-dev/adr-guard](https://github.com/rodri-oliveira-dev/adr-guard) | MIT; verbatim pinned copy. See `licenses/rodri-oliveira-dev__adr-guard.LICENSE`. |
+| `adr-guard-init` | [rodri-oliveira-dev/adr-guard](https://github.com/rodri-oliveira-dev/adr-guard) | MIT; verbatim pinned copy. See `licenses/rodri-oliveira-dev__adr-guard.LICENSE`. |
+| `adr-guard-lifecycle` | [rodri-oliveira-dev/adr-guard](https://github.com/rodri-oliveira-dev/adr-guard) | MIT; verbatim pinned copy. See `licenses/rodri-oliveira-dev__adr-guard.LICENSE`. |
+| `adr-guard-supersede` | [rodri-oliveira-dev/adr-guard](https://github.com/rodri-oliveira-dev/adr-guard) | MIT; verbatim pinned copy. See `licenses/rodri-oliveira-dev__adr-guard.LICENSE`. |
+| `adr-guard-team-adoption` | [rodri-oliveira-dev/adr-guard](https://github.com/rodri-oliveira-dev/adr-guard) | MIT; verbatim pinned copy. See `licenses/rodri-oliveira-dev__adr-guard.LICENSE`. |
+| `adr-guard-technical-review` | [rodri-oliveira-dev/adr-guard](https://github.com/rodri-oliveira-dev/adr-guard) | MIT; verbatim pinned copy. See `licenses/rodri-oliveira-dev__adr-guard.LICENSE`. |
+| `adr-guard-tradeoff-analysis` | [rodri-oliveira-dev/adr-guard](https://github.com/rodri-oliveira-dev/adr-guard) | MIT; verbatim pinned copy. See `licenses/rodri-oliveira-dev__adr-guard.LICENSE`. |
+| `adr-guard-validate` | [rodri-oliveira-dev/adr-guard](https://github.com/rodri-oliveira-dev/adr-guard) | MIT; verbatim pinned copy. See `licenses/rodri-oliveira-dev__adr-guard.LICENSE`. |
+| `adr-guard-when-to-record` | [rodri-oliveira-dev/adr-guard](https://github.com/rodri-oliveira-dev/adr-guard) | MIT; verbatim pinned copy. See `licenses/rodri-oliveira-dev__adr-guard.LICENSE`. |
+
+The ADR Guard skills retain their original texts and names. Their source commit
+is pinned in the curated manifest; runtime references to documentation on the
+ADR Guard `main` branch may evolve independently of the copied skills. The
+source MIT license is preserved without modification.
 
 ### DDD derivative attribution
 

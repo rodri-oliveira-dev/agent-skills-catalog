@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Offline validation of curated first-party and internally adapted Agent Skills."""
+"""Offline validation of curated, adapted and pinned first-party Agent Skills."""
 from __future__ import annotations
 
 import hashlib
@@ -70,6 +70,7 @@ def validate_curated(root: Path) -> set[str]:
             "rodri-oliveira-dev/poc-arquitetura",
             "rodri-oliveira-dev/dotnet-copilot-code-review-skills",
             "rodri-oliveira-dev/dotnet-library-template",
+            "rodri-oliveira-dev/adr-guard",
         }:
             raise ValueError(f"Unreviewed curated source repository: {owner}")
         for key in ("source_commit", "source_skill_blob_sha"):
