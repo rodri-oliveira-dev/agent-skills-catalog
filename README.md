@@ -53,11 +53,11 @@ Install only the skill you need (example):
 npx skills add rodri-oliveira-dev/agent-skills-catalog --skill docker-compose-patterns --agent codex --copy --yes
 ```
 
-## Curated internal skills — P0 + selected P1
+## Curated internal skills
 
-This catalog also contains adapted first-party/internal Agent Skills. Unlike the
-official snapshots above, these are **intentionally edited** to remove
-repository-specific paths, commands and assumptions.
+This catalog also includes reviewed first-party/internal Agent Skills. The
+seven previous entries were **adapted** for use across repositories; the 11
+ADR Guard skills below are **unchanged, pinned copies** of their source files.
 
 | Category | Skill | Use case |
 | --- | --- | --- |
@@ -74,7 +74,7 @@ repository-specific paths, commands and assumptions.
 - [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md): MIT notices for the
   third-party materials underlying the DDD adaptations.
 
-**Deferred candidate:** `dotnet-code-review` is not included or installable from this catalog because its source repository does not publish a redistribution license. It can be considered later only after permissions and licensing are documented; the current release contains **seven** approved internal skills.
+**Deferred candidate:** `dotnet-code-review` is not included or installable from this catalog because its source repository does not publish a redistribution license. It can be considered later only after permissions and licensing are documented. This catalog includes **18** reviewed internal skills (seven adaptations and 11 ADR Guard skills).
 
 Do not add curated skills to `catalog.sources.json` or
 `sources.lock.json`: those files represent unmodified official vendor
@@ -99,6 +99,32 @@ The upstream template keeps ownership of its own copies. The catalog publishes
 separate curated adaptations with pinned provenance and the source MIT notice
 in `licenses/rodri-oliveira-dev__dotnet-library-template.LICENSE`.
 
+### ADR Guard — architecture decision workflows
+
+These 11 skills are copied **without modification** from [ADR Guard](https://github.com/rodri-oliveira-dev/adr-guard/tree/main/skills), with an immutable source commit and Git blob checksums recorded in `catalog.curated.json`. They help teams document, assess, review and govern Architecture Decision Records (ADRs).
+
+| Skill | Purpose |
+| --- | --- |
+| `adr-guard-when-to-record` | Identify architecture choices that merit an ADR |
+| `adr-guard-tradeoff-analysis` | Compare options, constraints, and evidence |
+| `adr-guard-create` | Create a proposed ADR with a suitable template |
+| `adr-guard-init` | Initialize ADR documentation and configuration |
+| `adr-guard-validate` | Validate ADR structure and relationships |
+| `adr-guard-technical-review` | Review rationale, feasibility, and risks |
+| `adr-guard-lifecycle` | Maintain decision status and approval evidence |
+| `adr-guard-supersede` | Replace decisions while preserving history |
+| `adr-guard-audit` | Audit decision records and governance quality |
+| `adr-guard-ci-setup` | Set up ADR validation in GitHub Actions |
+| `adr-guard-team-adoption` | Plan lightweight ADR adoption with human owners |
+
+Install an individual skill via the [Skills CLI](https://github.com/vercel-labs/skills):
+
+```sh
+npx skills add rodri-oliveira-dev/agent-skills-catalog --skill adr-guard-create --agent codex --copy --yes
+```
+
+Importing an Agent Skill **does not install the ADR Guard CLI or its GitHub Action**, confer decision approval, or enable model-based context transmission. Consult each skill's `compatibility` metadata. ADR decisions and AI-provider data transfer remain human-controlled.
+
 ## Source of truth and provenance
 
 - [`catalog.sources.json`](catalog.sources.json) is an explicit allowlist of **official upstream folders**, with a pinned source commit, category and license.
@@ -112,7 +138,7 @@ For now, upgrades require reviewing and changing the pinned commit in `catalog.s
 
 ### Not in scope yet
 
-- Expanding the curated internal/community skills inventory beyond this reviewed P0.
+- Automated recommendations or deployment of curated skills into consumer repositories.
 - Automatic skill recommendation by repository dependencies, architectural patterns or testing tools.
 - An automatic upstream-update scheduling or alerting system.
 
