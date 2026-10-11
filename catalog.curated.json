@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "description": "Curated internal skills: reviewed P0 plus selected P1, with pinned origins and file-level integrity. Unlicensed candidates are not published.",
+  "description": "Reviewed first-party and adapted Agent Skills with pinned origins, license approvals and file-level integrity. Unlicensed candidates are not published.",
   "skills": [
     {
       "id": "ddd-domain-modeling",
