@@ -194,13 +194,15 @@ class CuratedSkillTests(unittest.TestCase):
         self.persist()
         self.assertEqual(validate_curated(self.root), {self.name})
 
-    def test_adr_guard_is_reviewed_mit_source(self) -> None:
+    def prepare_adr_guard(self) -> None:
+        """Configure a pinned, verbatim first-party skill fixture."""
         entry = self.data["skills"][0]
         entry.update({
             "source_repository": "rodri-oliveira-dev/adr-guard",
             "source_skill_path": "skills/adr-guard-create/SKILL.md",
             "source_license_file": "licenses/rodri-oliveira-dev__adr-guard.LICENSE",
             "classification": "internal-verbatim",
+            "source_skill_blob_sha": entry["files_git_blob_sha1"]["SKILL.md"],
         })
         (self.root / "licenses" / "rodri-oliveira-dev__adr-guard.LICENSE").write_text(
             "MIT License\nPermission is hereby granted\n",
@@ -210,7 +212,34 @@ class CuratedSkillTests(unittest.TestCase):
             "rodri-oliveira-dev/adr-guard", encoding="utf-8"
         )
         self.persist()
+
+    def test_adr_guard_is_reviewed_mit_source(self) -> None:
+        self.prepare_adr_guard()
         self.assertEqual(validate_curated(self.root), {self.name})
+
+    def test_verbatim_rejects_local_edit_even_with_updated_inventory(self) -> None:
+        self.prepare_adr_guard()
+        path = self.root / "skills" / self.name / "SKILL.md"
+        path.write_text(path.read_text(encoding="utf-8") + "\nModified\n", encoding="utf-8")
+        self.data["skills"][0]["files_git_blob_sha1"]["SKILL.md"] = blob_sha(
+            path.read_bytes()
+        )
+        self.persist()
+        with self.assertRaisesRegex(ValueError, "Verbatim skill differs from pinned source blob"):
+            validate_curated(self.root)
+
+    def test_verbatim_rejects_incorrect_source_blob(self) -> None:
+        self.prepare_adr_guard()
+        self.data["skills"][0]["source_skill_blob_sha"] = "f" * 40
+        self.persist()
+        with self.assertRaisesRegex(ValueError, "Verbatim skill differs from pinned source blob"):
+            validate_curated(self.root)
+
+    def test_unknown_curated_classification_is_rejected(self) -> None:
+        self.data["skills"][0]["classification"] = "internal-verbatm"
+        self.persist()
+        with self.assertRaisesRegex(ValueError, "Unsupported curated skill classification"):
+            validate_curated(self.root)
 
     def test_unreviewed_curated_source_is_rejected(self) -> None:
         self.data["skills"][0]["source_repository"] = "random-publisher/skills"
