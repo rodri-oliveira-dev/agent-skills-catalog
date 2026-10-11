@@ -64,6 +64,9 @@ def validate_curated(root: Path) -> set[str]:
         names.add(name)
         if item.get("path") != f"skills/{name}":
             raise ValueError(f"Invalid curated skill path: {name}")
+        classification = item.get("classification")
+        if classification not in {"internal-adapted", "internal-verbatim"}:
+            raise ValueError(f"Unsupported curated skill classification: {name}")
 
         owner = item.get("source_repository", "")
         if owner not in {
@@ -122,6 +125,10 @@ def validate_curated(root: Path) -> set[str]:
                 actual[path.relative_to(folder).as_posix()] = blob_sha(path.read_bytes())
         if actual != inventory:
             raise ValueError(f"Curated skill file hashes differ from catalog: {name}")
+        # Updating the inventory alone cannot turn an edited skill into a
+        # verbatim copy of the pinned source. Adaptations are exempt.
+        if classification == "internal-verbatim" and actual["SKILL.md"] != item["source_skill_blob_sha"]:
+            raise ValueError(f"Verbatim skill differs from pinned source blob: {name}")
 
         origins = item.get("upstream_attributions", [])
         if not isinstance(origins, list) or len(origins) != len(set(origins)):
