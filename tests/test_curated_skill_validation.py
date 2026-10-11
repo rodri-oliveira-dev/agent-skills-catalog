@@ -203,7 +203,7 @@ class CuratedSkillTests(unittest.TestCase):
             "classification": "internal-verbatim",
         })
         (self.root / "licenses" / "rodri-oliveira-dev__adr-guard.LICENSE").write_text(
-            "MIT License\\nPermission is hereby granted\\n",
+            "MIT License\nPermission is hereby granted\n",
             encoding="utf-8",
         )
         (self.root / "THIRD_PARTY_NOTICES.md").write_text(
